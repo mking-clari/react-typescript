@@ -1,10 +1,29 @@
 import * as React from "react";
 
-interface IProps {
-    name: string;
+export interface IPerson {
+    firstName: string;
+    lastName: string;
 }
 
-const HelloThing = ({ name }: IProps) =>
-    <h1>Hello, {name}!</h1>;
+export class Student {
+    private fullName: string;
+
+    constructor(
+        public firstName: string,
+        public lastName: string,
+    ) {
+        this.fullName = `${firstName} ${lastName}`;
+    }
+}
+
+const greeter = (person: IPerson) =>
+    `Hello, ${person.firstName} ${person.lastName}~`;
+
+interface IProps {
+    person: IPerson;
+}
+
+const HelloThing = ({ person }: IProps) =>
+    <h1>{greeter(person)}</h1>;
 
 export default HelloThing;

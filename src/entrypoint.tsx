@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import HelloThing from "./components/HelloThing";
+import HelloThing, { Student } from "./components/HelloThing";
 
-ReactDOM.render(<HelloThing name="TypeScript" />, document.getElementById("content"));
+const person = new Student("Matt", "Student");
+
+ReactDOM.render(<HelloThing person={person} />, document.getElementById("content"));
